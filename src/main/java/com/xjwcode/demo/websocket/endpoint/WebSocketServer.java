@@ -84,6 +84,7 @@ public class WebSocketServer {
         //消息保存到数据库、redis
         if (!StringUtils.isEmpty(message)) {
             try {
+                sendMessage("返回消息");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -96,7 +97,7 @@ public class WebSocketServer {
      */
     @OnError
     public void onError(Session session, Throwable error) {
-        log.error("用户错误:" + this.userId + ",原因:" + error.getMessage());
+        log.error("用户错误:" + this.userId + ",原因:" , error);
     }
 
     /**
